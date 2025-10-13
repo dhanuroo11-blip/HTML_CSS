@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 Not Found</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    /* Container */
+    .container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    /* Title */
+    h1 {
+      font-size: 10rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.2em;
+      user-select: none;
+    }
+
+    /* Subtitle */
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1em;
+      font-weight: 400;
+      user-select: none;
+    }
+
+    /* Description */
+    p {
+      font-size: 1.2rem;
+      max-width: 400px;
+      margin-bottom: 2em;
+      color: #ccd6f6;
+      user-select: none;
+    }
+
+    /* Button */
+    a.button {
+      background-color: #ffc107;
+      color: #222;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 15px 40px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      box-shadow: 0 6px 15px rgba(255, 193, 7, 0.6);
+      user-select: none;
+    }
+
+    a.button:hover,
+    a.button:focus {
+      background-color: #ffca28;
+      color: #000;
+    }
+
+    /* Decorative moon and stars container */
+    .sky {
+      position: absolute;
+      top: 15vh;
+      right: 10vw;
+      width: 150px;
+      height: 150px;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Moon */
+    .moon {
+      width: 100px;
+      height: 100px;
+      background: #fffde7;
+      border-radius: 50%;
+      position: relative;
+      box-shadow:
+        inset -20px 0 25px rgba(255 255 255 / 0.85),
+        0 0 15px 3px #fff9c4;
+      animation: slow-rotate 20s linear infinite;
+    }
+
+    /* Moon craters */
+    .moon::before,
+    .moon::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.7);
+    }
+    .moon::before {
+      width: 25px;
+      height: 25px;
+      top: 30px;
+      left: 25px;
+      box-shadow: inset -3px -3px 8px rgba(0,0,0,0.2);
+    }
+    .moon::after {
+      width: 15px;
+      height: 15px;
+      top: 60px;
+      left: 60px;
+      box-shadow: inset -2px -2px 4px rgba(0,0,0,0.2);
+    }
+
+    /* Sleepy eyes on moon */
+    .eye {
+      position: absolute;
+      background: transparent;
+      border: 3px solid #aaa;
+      border-top: none;
+      border-radius: 50%/40%;
+      width: 20px;
+      height: 10px;
+      top: 40px;
+      animation: blink 6s ease infinite;
+    }
+    .eye.right {
+      right: 20px;
+      border-color: #999;
+      animation-delay: 3s;
+    }
+    .eye.left {
+      left: 20px;
+    }
+
+    /* Stars */
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 2s infinite alternate;
+    }
+    .star.small {
+      width: 4px;
+      height: 4px;
+    }
+    .star.medium {
+      width: 6px;
+      height: 6px;
+    }
+    .star.large {
+      width: 8px;
+      height: 8px;
+    }
+
+    /* Positioning stars */
+    .star1 { top: 20px; left: 10px; animation-delay: 0s; }
+    .star2 { top: 50px; left: 60px; animation-delay: 1s; }
+    .star3 { top: 90px; left: 30px; animation-delay: 0.5s; }
+    .star4 { top: 10px; left: 100px; animation-delay: 1.5s; }
+    .star5 { top: 70px; left: 110px; animation-delay: 0.7s; }
+
+    /* Animations */
+    @keyframes twinkle {
+      0% { opacity: 0.3; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.2); }
+    }
+
+    @keyframes blink {
+      0%, 90%, 100% { border-top: none; }
+      95% { border-top: 3px solid #aaa; }
+    }
+
+    @keyframes slow-rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 6rem;
+      }
+      .container {
+        padding: 10px;
+      }
+      .sky {
+        width: 120px;
+        height: 120px;
+        top: 10vh;
+        right: 5vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main" aria-label="404 error page">
+    <h1>404</h1>
+    <h2>Page Not Found</h2>
+    <p>Oops! The page you're looking for doesn't exist or has been moved.</p>
+    <a href="/" class="button" role="button" tabindex="0">Go Back Home</a>
+
+    <div class="sky" aria-hidden="true">
+      <div class="moon" aria-label="Sleepy moon with closed eyes">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+      </div>
+      <div class="star star1 small"></div>
+      <div class="star star2 medium"></div>
+      <div class="star star3 small"></div>
+      <div class="star star4 large"></div>
+      <div class="star star5 medium"></div>
+    </div>
+  </div>
+</body>
+</html>
